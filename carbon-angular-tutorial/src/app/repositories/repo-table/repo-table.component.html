@@ -1,29 +1,42 @@
 <ibm-table-container>
-	<ibm-table-header>
-		<h4 ibmTableHeaderTitle>Carbon Repositories</h4>
-		<p ibmTableHeaderDescription>A collection of public Carbon repositories.</p>
-	</ibm-table-header>
-	<ibm-table
-    [skeleton]="skeleton"
-    [model]="skeleton ? skeletonModel : model"
-    [showSelectionColumn]="false"
-    [striped]="false">
+
+  <ibm-table-header>
+    <h4 ibmTableHeaderTitle>Carbon Repositories</h4>
+    <p ibmTableHeaderDescription>A collection of public Carbon repositories.</p>
+  </ibm-table-header>
+
+  <ibm-table [skeleton]="skeleton" [model]="skeleton ? skeletonModel : model" [showSelectionColumn]="true"
+    [striped]="false" (rowClick)="onRowClick($event)" (selectRow)="onSelectRow($event)">
+
   </ibm-table>
-  <ibm-pagination
-    [model]="model"
-    (selectPage)="selectPage($event)">
+
+  <ibm-pagination [model]="model" (selectPage)="selectPage($event)">
   </ibm-pagination>
+
 </ibm-table-container>
 
 
 <ng-template #linkTemplate let-data="data">
-    <ul style="display: flex">
-      <li>
-        <a ibmLink [href]="data.github">Github</a>
-      </li>
-      <li *ngIf="data.homepage">
-        <span>&nbsp;|&nbsp;</span>
-        <a ibmLink [href]="data.homepage">HomePage</a>
-      </li>
-    </ul>
-  </ng-template> 
+  <ul style="display: flex">
+    <li>
+      <a ibmLink [href]="data.github">Github</a>
+    </li>
+    <li *ngIf="data.homepage">
+      <span>&nbsp;|&nbsp;</span>
+      <a ibmLink [href]="data.homepage">HomePage</a>
+    </li>
+  </ul>
+</ng-template>
+
+<!-- please import DialogModule before using <ibm-overflow-menu> -->
+
+<ng-template #overflowMenuItemTemplate let-data="data">
+
+
+  <ibm-overflow-menu>
+    <ibm-overflow-menu-option *ngFor="let item of options.data" (selected)="actionSelected(item.value)">
+      {{item.label}}
+    </ibm-overflow-menu-option>
+  </ibm-overflow-menu>
+
+</ng-template>

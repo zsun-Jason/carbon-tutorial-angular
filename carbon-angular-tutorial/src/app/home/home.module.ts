@@ -10,6 +10,7 @@ import {
     ListModule} from 'carbon-components-angular';
     
 import { HomeRoutingModule } from './home-routing.module';
+import { InfoModule } from '../info/info.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { HomeRoutingModule } from './home-routing.module';
     ListModule,
     BreadcrumbModule,
     ButtonModule,
-    TabsModule
+    TabsModule,
+    InfoModule
   ]
 })
 export class HomeModule { }

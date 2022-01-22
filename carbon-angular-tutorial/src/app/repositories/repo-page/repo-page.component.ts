@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  TableModel,
-  TableItem,
-  TableHeaderItem,
-} from 'carbon-components-angular';
+// import {
+//   TableModel,
+//   TableItem,
+//   TableHeaderItem,
+// } from 'carbon-components-angular';
 
 @Component({
   selector: 'app-repo-page',

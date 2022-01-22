@@ -6,13 +6,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { IconModule, IconService, UIShellModule } from 'carbon-components-angular';
-
+import { GraphQLModule } from './graphql.module';
+import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
+
 import Notification20 from '@carbon/icons/es/notification/20';
 import UserAvatar20 from '@carbon/icons/es/user--avatar/20';
 import AppSwitcher20 from '@carbon/icons/es/app-switcher/20';
-import { GraphQLModule } from './graphql.module';
-import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ export class AppModule {
 		iconService.registerAll([
 			Notification20,
 			UserAvatar20,
-			AppSwitcher20
+      AppSwitcher20
+
 		]);
 	}
   
